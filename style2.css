@@ -1,0 +1,567 @@
+html {
+	    
+    scroll-behavior: smooth;
+    background-color: #6B3B39;
+}
+
+/***********************
+การทำให้เว็บมัน reponsive
+***********************/
+body {
+
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width:768px) {
+
+    .nav-bar{
+        margin-top: 3%;
+        display: flex; /*flexคือให้มันกระจาย*/
+        flex-wrap: nowrap;
+    }
+
+    .nav-link, .nav-link1 {
+        text-align: center;
+        padding: 5px 10px;
+        font-size: 1.2vw;
+        display: block;
+        margin: 5px 0;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .ind{
+        padding: 20px;
+        width: 100%;
+    }
+
+    .header{
+        flex-wrap: nowrap;
+        position: sticky;
+        
+        
+    }
+
+    /*.header:nohover{
+        opacity: 1;
+        background-color: #000000;
+    }*/
+
+    .fil{
+        height: 75vw;
+    }
+
+    .pic{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+    }
+
+    .video{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .quote-container {
+        width: 13vw;
+         /* กำหนดความกว้างให้กลางของหน้าจอ */
+        margin: 0 auto; /* จัดให้ quote-container อยู่ตรงกลางแนวนอน */
+        text-align: center; /* จัดให้ข้อความอยู่ตรงกลางแนวนอน */
+        display: flex; /* ใช้ Flexbox เพื่อจัดให้ข้อความอยู่ตรงกลางแนวตั้ง */
+        justify-content: center; /* จัดให้ quote-container อยู่ตรงกลางแนวตั้ง */
+        align-items: center; /* จัดให้ quote-container อยู่ตรงกลางแนวนอน */
+        /* กำหนดความสูงสำหรับสี่เหลี่ยมจัตุรัส */
+    }
+
+    .quote ,.quote2{
+        /*width: 200px;
+        height: 200px;*/
+        margin: 0 auto;
+        height: 80px; /* กำหนดความสูงสำหรับสี่เหลี่ยมจัตุรัส */
+        /*line-height: 80px; /* ให้ข้อความอยู่ตรงกลางสูงสุด */
+        text-align: center;
+        display: flex; /* ใช้ Flexbox เพื่อจัดให้ข้อความอยู่ตรงกลางแนวตั้ง */
+        justify-content: center; /* จัดให้ข้อความอยู่ตรงกลางแนวตั้ง */
+        align-items: center;
+        
+        font-size: 1.1vw;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+
+    .fil{
+        height: 65vw;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /*.quote ,.quote2{
+        width: 10vw;
+    }*/
+
+}
+
+
+
+/*****************
+    scrollbar
+*****************/
+::-webkit-Scrollbar{
+
+width: 10px; 
+background: rgb(0, 0, 0);
+
+}
+
+::-webkit-Scrollbar-thumb{
+
+border-radius: 10px;
+background: #FD4400;
+box-shadow: inset 0 0 20px #FD4400;
+
+}
+
+/* rgb(116, 25, 25) */
+
+
+/********************************************************************
+    กำหนดแบ้กกราวแล้วก็ทำให้มันเป็นพื้นหลังจริงๆ ไม่ใช่เลเยอร์เดียวกันกับกล่องด้านบน
+********************************************************************/
+#first { 	
+
+    margin: auto;  /*  ปล.marginกับpaddingต่างกันตรงที่ marginคือระยะห้างข้างนอกกับelement ส่วนpaddingคือระยะห่างภายในelement*/
+    
+    height: 100%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#first .fil {
+
+    background: url(https://thumbs.dreamstime.com/b/cyber-screen-orange-hacker-digital-text-motion-graphic-background-backdrop-171229054.jpg) ;
+    background-size: cover;
+    background-position: center;
+    /*background-attachment: fixed;*/
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    opacity:.70;
+    /*height: 45vw;*/
+    
+}
+
+/*****************************
+    แท็บด้านบนสุด ที่คลิกได้
+*****************************/
+
+header{
+    
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center; 
+    justify-content: space-around; 
+
+    position: fixed;   /* fixed คือตำแหน่งที่มีความเกี่ยวข้องกับ Viewport คือจะอยู่ในตำแหน่งเดิมเสมอ
+                           เปลี่ยนเป็น sticky เพราะเวลาดูในทรศถ้าเลื่อนลงมามันจะยังเห็นแท็บอยู่ตลอดแต่ข้อเสียคือรุ่นเก่าน่าจะใช้ไมไ่ด้*/
+    
+    /* left: 0 ; */
+    top: 0;
+    transition: 0.3s;
+    
+    z-index: 5;
+
+}
+
+/*  .nav-show{
+    opacity: 0;
+
+    .active{
+    background: ;
+}
+}*/
+
+
+header:hover{
+    opacity: 1;
+    background: #000000;
+    
+}
+
+
+.nav-bar{
+    list-style:none;
+    position: relative;
+    display: flex; /*flexคือให้มันกระจาย*/
+    flex-wrap: nowrap;
+}
+
+a.nav-link{
+    
+    text-decoration: none;
+    color: #cf4040;
+    /*font-size: 1vw;*/
+    font-family:'Slackey', cursive ;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    
+}
+
+
+a.nav-link1{
+
+    text-decoration: none;
+    color: #717171;
+    /*font-size: 1vw;*/
+    font-family:'Slackey', cursive ;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav-link1:hover {
+    color: #ffffff;
+    
+}
+
+.vl {
+    float: left;
+    border-right: 5px solid rgb(148, 148, 148);
+    padding-right: 30px;
+    margin-right: 30px;   
+    margin-bottom: 10px;
+
+       /* vl คือเส้นตรงแนวตั้ง (ที่อยู่ในแท็บด้านบนสุด)*/
+}
+
+
+
+
+
+/*header {
+
+    z-index: 5;
+}
+
+.nav-bar {
+    opacity:0;
+    z-index: 1;
+} */
+
+
+/*********************
+    กำหนด..ฟ้อน
+*********************/
+
+h1 {
+
+    color: #d31717e8;
+    text-align: center;
+    font-family: 'Slackey', cursive;
+    
+    
+}
+
+h2 {
+    font-size: 4vw;
+    font-family: 'Slackey', cursive;
+    color: #FD4400;
+    margin:5px;
+} 
+
+h3 {
+
+    font-size: 25px;
+    font-family: 'Slackey', cursive;
+    color: #FD4400;
+}
+
+.aa {
+    color: rgb(255, 138, 22);
+}
+
+/***********************
+เนื้อหาส่วนแรก กำหนดเป็นกล่องอ้วนๆมนๆ
+***********************/
+.ind {
+    
+    background-color: #cacccb;
+    text-align: center;
+    font-family: 'Taviraj', serif;
+    width: 65vw;
+    height: auto;
+    z-index: 1;
+    border-radius: 30px;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+}
+
+.inind {
+    font-size: 1.7vw;
+}
+
+.inb {
+    width: 35vw;
+}
+
+/*************************
+    quote ที่อยู่ข้างรูปกับวิดีโอ
+*************************/
+/*.quote {
+
+    position: absolute;
+    background-color: #FD4400;
+    color: rgb(255, 255, 255);
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 100px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Taviraj', serif;
+    /*float: left;
+    
+    
+}*/
+.quote {
+    width: 13vw;
+    height: 13vw;
+    /*width: 13vw;
+   /* width: 50%; /* คำคมจะเต็มครึ่งหนึ่งของคอลัมน์ */
+    background-color: #FD4400;
+    color: white;
+    text-align: center;
+    /*font-size: 1.1vw;*/
+    align-self: center;
+    font-family: 'Taviraj', serif;
+    padding: 10px;
+    border-radius: 10px;
+    white-space: normal;
+    height: auto;
+  }
+
+  .quote2 {
+    width: 200px;
+    height: 200px;
+    /*width: 13vw;
+    /*width: auto; */
+    background-color: #FD4400;
+    color: white;
+    text-align: center;
+    align-self: center;
+    font-family: 'Taviraj', serif;
+    padding: 10px;
+    border-radius: 10px;
+    white-space: normal; /* ปรับให้ข้อความแสดงเป็นหลายบรรทัด */
+    height: auto; /* ปรับความสูงให้ข้อความขยายตามเนื้อหา */
+  }
+
+
+/*.quote2 {
+
+    position: absolute;
+    background-color: #FD4400;
+    color: rgb(255, 255, 255);
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 100px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Taviraj', serif;
+    
+    
+}*/
+
+/*************************
+        จัดรูป วดอ quote
+**************************/
+
+/* ให้ครอบคลาสทั้งหมดด้วยคลาส container เพื่อใช้ Flexbox */
+.all {
+    display: flex;
+    flex-direction: column; /* แสดงให้อยู่ในแนวตั้ง */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    justify-content: flex-start; /* จัดตำแหน่งตรงส่วนบน */
+}
+
+
+.pic{
+    display: flex;
+    flex-direction: row; /* แสดงให้อยู่ในแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    justify-content: space-between; /* จัดห่างระหว่างคำคมและรูปภาพให้อยู่ในส่วนขวา */
+    margin: 20px; /* ขอบระหว่างรายการ */
+    
+}
+
+#im {
+    max-width: 100%;
+    height: auto;
+}
+
+.between{
+    display: flex;
+    flex-direction: row; /* แสดงให้อยู่ในแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    justify-content: space-between; /* จัดห่างระหว่างวิดีโอและคำคมที่สองให้อยู่ในส่วนขวา */
+    margin: 20px;/*ในนี้ก้อปมายังไม่แน่ใจ*/
+}
+.video{
+    display: flex;
+    flex-direction: row; /* แสดงให้อยู่ในแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    justify-content: space-between; /* จัดห่างระหว่างวิดีโอและคำคมที่สองให้อยู่ในส่วนขวา */
+    margin: 20px; /* ขอบระหว่างรายการ */
+    /*position absolute ทำงงอยู่นานถ้าใส่ไปทำให้มันทับกับอีกคลาส*/
+}
+
+/*.vid {
+    width: 50%;
+}*/
+
+
+/************************
+     กำหนดสีในmark
+************************/
+
+.p1 {
+
+    background-color: rgb(255, 138, 22);
+}
+
+
+
+/***************************/
+
+hr {
+
+    background: #FD4400;
+    height: 3px;
+    width: 500px;
+    border-radius: 5px;
+    border: hidden;
+    /* เส้นตรงแนวนอน */
+}
+
+figure {
+
+    text-align: center;
+    font-family: 'Taviraj', serif ;
+    color: #ffffff;
+    
+}
+
+.more {
+    text-align: center;
+    font-family: 'Taviraj', serif ;
+    color: #ffffff;
+    margin: 20px;
+}
+
+figure img{
+    width: 800px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*position: absolute;*/
+}
+
+/*figure video{
+    width: 800px;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: absolute;
+}*/
+
+/*figure video{
+    height: 450px;
+}*/
+
+
+
+
+
+a {
+
+    text-decoration : none;
+}
+
+
+
+.tact {
+
+    font-size: 60px;
+    font-family: 'Slackey', cursive;
+    color: #FD4400;
+    position: absolute;
+    
+    text-align: center;
+    position: relative;
+    
+}
+
+.eiei {
+    font-size: 25px;
+    font-family:'Taviraj', serif ;
+    margin-top: 12px;
+    position: relative;
+    
+}
+
+.con {
+
+    list-style: none;
+    font-family:'Taviraj', serif ; 
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 850px;
+
+}
+
+hr.one {
+
+    margin-left: 0%;
+}
+
+.conlink {
+
+    color: #ffffff;
+
+}
+
+.conlink:hover {
+
+    color: #FD4400;
+}
